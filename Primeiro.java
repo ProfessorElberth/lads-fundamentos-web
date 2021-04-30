@@ -21,30 +21,47 @@ public class Primeiro{
 	private static boolean validar(int qtde){		
 		return qtde == 6;
 	}
+	
+	private static int definirAnoNascimento(){
+		return 2021 - idade;
+	}
+	
+	private static float calcularValorTotal(){
+		return qtdeMeses * salario;
+	}
+	
+	private static String obterPerfilPorIdade(){
+		return idade < 50 ? "iniciante" : "veterano";
+	}
+	
+	private static String obterPerfilPorSalario(float salarioTotal){
+		return salarioTotal > 1000 ? "estavel" : "instavel";
+	}
+
+	private static void imprimir(){
+		float salarioTotal = calcularValorTotal();			
+
+		System.out.println("Nome: " + nome);
+		System.out.println("Sobrenome: " + sobrenome);
+		System.out.println("Idade: " + idade);
+		System.out.println("Nascimento: " + definirAnoNascimento());
+		System.out.println("Salario: " + salario);
+		System.out.println("Java? " + ehJava);
+		System.out.println("Salario Total: " + salarioTotal);
+		System.out.println("Nivel: " + obterPerfilPorIdade());
+		System.out.println("Situacao: " + obterPerfilPorSalario(salarioTotal));
+	}
 
 	public static void main(String[] args)	{		
-	
+
 		if(validar(args.length)){
 			parametros = args;
-
+			
 			tratarParametros();
 
-			int anoNascimento = 2021 - idade;
-			float salarioTotal = salario * qtdeMeses;
-			String nivel = idade < 50 ? "iniciante" : "veterano";
-			String situacao = salarioTotal > 1000 ? "estavel" : "instavel";
-
-			System.out.println("Nome: " + nome);
-			System.out.println("Sobrenome: " + sobrenome);
-			System.out.println("Idade: " + idade);
-			System.out.println("Nascimento: " + anoNascimento);
-			System.out.println("Salario: " + salario);
-			System.out.println("Java? " + ehJava);
-			System.out.println("Salario Total: " + salarioTotal);
-			System.out.println("Nivel: " + nivel);
-			System.out.println("Situacao: " + situacao);
+			imprimir();
 		} else {		
 			System.out.println("Problemas na quantidade de parametros.");
-		}
+		}		
 	}		
 }
