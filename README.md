@@ -14,8 +14,7 @@ Vamos trabalhar com o Java 11 na IDE Eclipse.
 
 > Compreender a plataforma do Java e seus principais componentes
 
-Instalar programas necessários para o ambiente de desenvolvimento Java no computador
-Realizar configurações extras no ambiente de desenvolvimento
+Instalar programas necessários para o ambiente de desenvolvimento Java no computador e realizar configurações extras.
 
 > Compreender os fundamentos da lógica de programação utilizando o Java
 
