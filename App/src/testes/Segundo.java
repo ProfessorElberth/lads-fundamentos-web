@@ -7,7 +7,11 @@ public class Segundo{
 	private static String[] nomes;
 	private static int[] idades;
 	private static float[] salarios;
+	private static float[] bonus;
+	private static float[] descontos;
 	
+	private static int index;	
+
 	private static final int QTDE = 5;
 	
 	public static void main(String[] args){
@@ -16,10 +20,10 @@ public class Segundo{
 		nomes = new String[QTDE];
 		idades = new int[QTDE];
 		salarios = new float[QTDE];
+		bonus = new float[QTDE];
+		descontos = new float[QTDE];
 		
 		String opcao = null;
-		
-		int index = 0;
 		
 		do {
 			System.out.println("[1] Cadastrar");
@@ -31,17 +35,30 @@ public class Segundo{
 			opcao = in.next();
 			
 			switch (opcao) {
-			case "1":
-				System.out.println("Informe o seu nome: ");
-				nomes[index] = in.next();
-				
-				System.out.println("Informe a sua idade: ");
-				idades[index] = in.nextInt();
-				
-				System.out.println("Informe o seu salario: ");
-				salarios[index] = in.nextFloat();
+			case "1": 
+				if(index < QTDE) {
+					System.out.println("Informe o seu nome: ");
+					nomes[index] = in.next();
+					
+					System.out.println("Informe a sua idade: ");
+					idades[index] = in.nextInt();
+					
+					System.out.println("Informe o seu salario: ");
+					salarios[index] = in.nextFloat();
+	
+					System.out.println("Informe o seu bonus: ");
+					bonus[index] = in.nextFloat();
 
-				index++;
+					System.out.println("Informe o seu desconto: ");
+					descontos[index] = in.nextFloat();
+
+					System.out.println("Funcionário cadastrado com sucesso: ");
+					imprimir(index);
+					
+					index++;
+				} else {
+					System.out.println("Não existe mais vaga para o cadastramento!!!");
+				}
 				
 				break;
 
@@ -49,7 +66,12 @@ public class Segundo{
 				System.out.print("Informe a posicao: ");
 				int pos = in.nextInt();
 				
-				imprimir(pos);
+				if(pos >= 0 && pos < index) {
+					imprimir(pos);
+				} else {
+					System.out.println("Funcionário inexistente!!!");
+				}
+				
 				break;
 
 			case "3":
@@ -73,19 +95,32 @@ public class Segundo{
 	
 	private static void imprimir() {
 		System.out.println("Listagem de inscritos:");
-		for(String nome : nomes) {
-			if(nome != null) {
-				System.out.println("Nome: " + nome);
-			}
+		for(int i = 0; i < index; i++) {
+			imprimir(i);
 		}
 	}
 	
 	private static void imprimir(int posicao){
-		System.out.printf("%d - %s - %d - R$%.2f\n", 
+		
+		float salarioLiquido = calcularSalario(posicao);
+		
+		System.out.printf("[%d] %s - %d - R$%.2f - R$%.2f - R$%.2f = R$%.2f (%s)\n", 
 				posicao + 1, 
 				nomes[posicao], 
 				idades[posicao],
-				salarios[posicao]
+				salarios[posicao],
+				bonus[posicao],
+				descontos[posicao],
+				salarioLiquido,
+				getSituacao(salarioLiquido)
 			);
-	}	
+	}
+	
+	private static float calcularSalario(int idx) {
+		return salarios[idx] + bonus[idx] - descontos[idx];
+	}
+	
+	private static String getSituacao(float sl) {
+		return sl > 100000 ? "rico" : "pobre";
+	}
 }

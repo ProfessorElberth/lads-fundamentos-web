@@ -22,12 +22,18 @@ Conhecer a estrutura básica de um programa Java, compilar um programa, corrigir
 
 ### Semana 02
 
-> Escrever programas em Java utilizando variáveis
+> Escrever programas em Java utilizando variáveis, estruturas condicionais
 
 Implementar a estrutura básica de um programa em Java, o uso de váriáveis e o uso de estruturas condicionais.
 
 ### Semana 03
 
-> Escrever programas em Java utilizando variáveis, estruturas condicionais, loops e vetores
+> Escrever programas em Java utilizando loops e vetores
 
 Implementar o uso de estruturas de repetição e o uso de vetores.
+
+### Semana 04
+
+> Escrever programas em Java com orientação a objetos
+
+Construir classes, atributos e métodos, criar instâncias e realizar chamadas de métodos, escrever construtores, implementar sobrecargas de construtores e métodos.
