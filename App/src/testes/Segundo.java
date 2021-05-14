@@ -90,8 +90,28 @@ public class Segundo{
 
 		} while (!opcao.equals("4"));
 		
+		exibirRelatorio();
+		
 		in.close();		
-	}	
+	}
+	
+	private static float calcularMediaSalarial() {
+		float soma = 0;
+
+		for(int i = 0; i < index; i++) {
+			soma = soma + calcularSalario(i); 
+		}
+		
+		return soma / index;
+	}
+	
+	private static void exibirRelatorio() {
+		int qtde = index;
+
+		System.out.println("Relatório:");
+		System.out.println("Quantidade de funcionários: " + qtde);
+		System.out.println("Média salarial dos funcionários: " + calcularMediaSalarial());
+	}
 	
 	private static void imprimir() {
 		System.out.println("Listagem de inscritos:");
