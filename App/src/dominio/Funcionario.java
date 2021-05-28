@@ -31,22 +31,28 @@ public abstract class Funcionario {
 		this.salario = salario;
 	}
 	
-	protected abstract float calcularSalario();
+	public abstract float calcularSalario();
 	
-	private String getSituacao(float salarioLiquido) {
+	public String getSituacao(float salarioLiquido) {
 		return salarioLiquido > Constante.SALARIO ? "rico" : "pobre";
 	}
 	
-	public void exibir() {
-		float sl = calcularSalario();
-		System.out.println("Funcionário: " + this + " = R$" + sl + " [" + getSituacao(sl) + "]");
+	public void imprimir() {
+		float salarioLiquido = calcularSalario();
+		
+		System.out.printf("%d :: %s - %d - R$%.2f - R$%.2f - R$%.2f = R$%.2f (%s)\n", 
+				0, 
+				getNome(), 
+				getIdade(),
+				getSalario(),
+				0f,//getBonus(),
+				0f,//getDesconto(),
+				salarioLiquido,
+				getSituacao(salarioLiquido)
+			);
+		
 	}
-
-	@Override
-	public String toString() {
-		return "Sou o funcionário " + nome + " e tenho " + idade + " anos";
-	}
-
+	
 	public String getNome() {
 		return nome;
 	}

@@ -19,6 +19,6 @@ public class ProgramadorTeste {
 		System.out.println(progJava);
 	
 		Programador progJS = new Programador("huguinho", 20, 99, true, "JS");
-		progJS.exibir();
+		progJS.imprimir();
 	}
 }

@@ -32,8 +32,9 @@ public class Programador extends Funcionario {
 	public float calcularSalario(){		
 		return getSalario() + calcularSalarioFullStack() + calcularSalarioLinguagem();
 	}
-
-	private String getSituacao(float salarioLiquido) {
+	
+	@Override
+	public String getSituacao(float salarioLiquido) {
 		if(salarioLiquido > 10000) {
 			return "rico";
 		} else if(salarioLiquido < 2500) {

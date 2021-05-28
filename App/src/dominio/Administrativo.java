@@ -12,11 +12,11 @@ public class Administrativo extends Funcionario {
 	public Administrativo(String nome, int idade) {
 		super(nome, idade);
 	}
-	
+
 	@Override
-	protected float calcularSalario() {
+	public float calcularSalario() {
 		return getSalario() + bonus - desconto;
-	}	
+	}
 
 	public float getBonus() {
 		return bonus;

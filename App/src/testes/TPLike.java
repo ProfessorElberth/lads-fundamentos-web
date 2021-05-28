@@ -2,13 +2,13 @@ package testes;
 
 import java.util.Scanner;
 
+import dominio.Administrativo;
+import dominio.Estagiario;
+import dominio.Funcionario;
+
 public class TPLike{
 
-	private static String[] nomes;
-	private static int[] idades;
-	private static float[] salarios;
-	private static float[] bonus;
-	private static float[] descontos;
+	private static Funcionario[] funcionarios;
 	
 	private static int index;	
 
@@ -17,19 +17,16 @@ public class TPLike{
 	public static void main(String[] args){
 		Scanner in = new Scanner(System.in);
 		
-		nomes = new String[QTDE];
-		idades = new int[QTDE];
-		salarios = new float[QTDE];
-		bonus = new float[QTDE];
-		descontos = new float[QTDE];
+		funcionarios = new Funcionario[QTDE];
 		
 		String opcao = null;
 		
 		do {
-			System.out.println("[1] Cadastrar");
-			System.out.println("[2] Consultar um");
-			System.out.println("[3] Consultar todos");
-			System.out.println("[4] Sair");
+			System.out.println("[1] Cadastrar administrativo");
+			System.out.println("[2] Cadastrar estagiario");
+			System.out.println("[7] Consultar um");
+			System.out.println("[8] Consultar todos");
+			System.out.println("[9] Sair");
 			
 			System.out.print("Informe a opcao desejada: ");
 			opcao = in.next();
@@ -37,23 +34,27 @@ public class TPLike{
 			switch (opcao) {
 			case "1": 
 				if(index < QTDE) {
+					Administrativo adm = new Administrativo();
+					
 					System.out.println("Informe o seu nome: ");
-					nomes[index] = in.next();
+					adm.setNome(in.next());
 					
 					System.out.println("Informe a sua idade: ");
-					idades[index] = in.nextInt();
+					adm.setIdade(in.nextInt());
 					
 					System.out.println("Informe o seu salario: ");
-					salarios[index] = in.nextFloat();
+					adm.setSalario(in.nextFloat());
 	
 					System.out.println("Informe o seu bonus: ");
-					bonus[index] = in.nextFloat();
+					adm.setBonus(in.nextFloat());
 
 					System.out.println("Informe o seu desconto: ");
-					descontos[index] = in.nextFloat();
+					adm.setDesconto(in.nextFloat());
 
-					System.out.println("Funcionário cadastrado com sucesso: ");
-					imprimir(index);
+					funcionarios[index] = adm;
+					
+					System.out.println("Administrativo cadastrado com sucesso: ");
+					funcionarios[index].imprimir();
 					
 					index++;
 				} else {
@@ -62,24 +63,55 @@ public class TPLike{
 				
 				break;
 
-			case "2":
+			case "2": 
+				if(index < QTDE) {
+					Estagiario estag = new Estagiario();
+					
+					System.out.println("Informe o seu nome: ");
+					estag.setNome(in.next());
+					
+					System.out.println("Informe a sua idade: ");
+					estag.setIdade(in.nextInt());
+					
+					System.out.println("Informe o seu salario: ");
+					estag.setSalario(in.nextFloat());
+	
+					System.out.println("Informe a sua instituicao: ");
+					estag.setInstituicao(in.next());
+
+					System.out.println("Informe o seu desconto: ");
+					estag.setDesconto(in.nextFloat());
+
+					funcionarios[index] = estag;
+					
+					System.out.println("Estagiário cadastrado com sucesso: ");
+					funcionarios[index].imprimir();
+					
+					index++;
+				} else {
+					System.out.println("Não existe mais vaga para o cadastramento!!!");
+				}
+				
+				break;
+			
+			case "7":
 				System.out.print("Informe a posicao: ");
 				int pos = in.nextInt();
 				
 				if(pos >= 0 && pos < index) {
-					imprimir(pos);
+					funcionarios[pos].imprimir();
 				} else {
 					System.out.println("Funcionário inexistente!!!");
 				}
 				
 				break;
 
-			case "3":
+			case "8":
 				imprimir();
 				
 				break;
 
-			case "4":
+			case "9":
 				System.out.println("Finalizou!!!");
 				break;
 				
@@ -97,9 +129,9 @@ public class TPLike{
 	
 	private static float calcularMediaSalarial() {
 		float soma = 0;
-
+		
 		for(int i = 0; i < index; i++) {
-			soma = soma + calcularSalario(i); 
+			soma = soma + funcionarios[index].calcularSalario();
 		}
 		
 		return soma / index;
@@ -116,31 +148,7 @@ public class TPLike{
 	private static void imprimir() {
 		System.out.println("Listagem de inscritos:");
 		for(int i = 0; i < index; i++) {
-			imprimir(i);
+			funcionarios[i].imprimir();
 		}
-	}
-	
-	private static void imprimir(int posicao){
-		
-		float salarioLiquido = calcularSalario(posicao);
-		
-		System.out.printf("[%d] %s - %d - R$%.2f - R$%.2f - R$%.2f = R$%.2f (%s)\n", 
-				posicao + 1, 
-				nomes[posicao], 
-				idades[posicao],
-				salarios[posicao],
-				bonus[posicao],
-				descontos[posicao],
-				salarioLiquido,
-				getSituacao(salarioLiquido)
-			);
-	}
-	
-	private static float calcularSalario(int idx) {
-		return salarios[idx] + bonus[idx] - descontos[idx];
-	}
-	
-	private static String getSituacao(float sl) {
-		return sl > 100000 ? "rico" : "pobre";
 	}
 }
