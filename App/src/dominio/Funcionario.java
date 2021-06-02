@@ -4,6 +4,7 @@ import auxiliar.Constante;
 
 public abstract class Funcionario {
 
+	private int id;
 	private String nome;
 	private int idade;
 	private float salario;
@@ -31,6 +32,8 @@ public abstract class Funcionario {
 		this.salario = salario;
 	}
 	
+	public abstract void exibirFormaCalculo();
+	
 	public abstract float calcularSalario();
 	
 	public String getSituacao(float salarioLiquido) {
@@ -40,39 +43,39 @@ public abstract class Funcionario {
 	public void imprimir() {
 		float salarioLiquido = calcularSalario();
 		
-		System.out.printf("%d :: %s - %d - R$%.2f - R$%.2f - R$%.2f = R$%.2f (%s)\n", 
-				0, 
-				getNome(), 
-				getIdade(),
-				getSalario(),
-				0f,//getBonus(),
-				0f,//getDesconto(),
+		System.out.printf("%d :: %s - %d - R$%.2f - %s = R$%.2f (%s)\n", 
+				id, 
+				nome, 
+				idade,
+				salario,
+				this.toString(),
 				salarioLiquido,
 				getSituacao(salarioLiquido)
 			);
 		
 	}
 	
+	public int getId() {
+		return id;
+	}
+	public void setId(int id) {
+		this.id = id;
+	}
 	public String getNome() {
 		return nome;
 	}
-
 	public void setNome(String nome) {
 		this.nome = nome;
 	}
-
 	public int getIdade() {
 		return idade;
 	}
-
 	public void setIdade(int idade) {
 		this.idade = idade;
 	}
-
 	public float getSalario() {
 		return salario;
 	}
-
 	public void setSalario(float salario) {
 		this.salario = salario;
 	}

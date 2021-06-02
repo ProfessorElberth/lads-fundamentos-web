@@ -32,6 +32,18 @@ public class Programador extends Funcionario {
 	public float calcularSalario(){		
 		return getSalario() + calcularSalarioFullStack() + calcularSalarioLinguagem();
 	}
+
+	@Override
+	public void exibirFormaCalculo() {
+		System.out.println("salário fullstack = 1500 (se fullstack sim)");
+		System.out.println("salário fullstack = 500  (se fullstack não)");
+		System.out.println("salário linguagem = 2000 (se linguagem java sim)");
+		System.out.println("salário linguagem = 750  (se linguagem java não)");
+		
+		System.out.println("= salário + salário fullstack + salário linguagem");
+		System.out.println("= " + getSalario() + " + " + calcularSalarioFullStack() + " - " + calcularSalarioLinguagem());
+		System.out.println("= " + calcularSalario());
+	}
 	
 	@Override
 	public String getSituacao(float salarioLiquido) {
@@ -46,10 +58,16 @@ public class Programador extends Funcionario {
 
 	@Override
 	public String toString() {
-		float sl = calcularSalario();
-		return "O programador " + this.getNome() + " desenvolve em " + this.linguagem + 
-				" || " + sl + "("+getSituacao(sl)+")";
+		return String.format("%s - %s", fullStack, linguagem); 
 	}
+	
+//	@Override
+//	public void imprimir() {
+//		float sl = calcularSalario();
+//		System.out.println("O programador " + this.getNome() + " desenvolve em " + this.linguagem + 
+//				" || " + sl + "("+getSituacao(sl)+")");
+//
+//	}
 
 	public boolean isFullStack() {
 		return fullStack;

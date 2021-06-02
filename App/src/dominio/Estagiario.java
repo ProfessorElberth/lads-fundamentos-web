@@ -4,6 +4,19 @@ public class Estagiario extends Funcionario {
 
 	private float desconto;
 	private String instituicao;
+
+	
+	@Override
+	public String toString() {
+		return String.format("%.2f - %s", desconto, instituicao);
+	}
+	
+	@Override
+	public void exibirFormaCalculo() {
+		System.out.println("= salário - desconto");
+		System.out.println("= " + getSalario() + " - " + desconto);
+		System.out.println("= " + calcularSalario());
+	}
 	
 	@Override
 	public float calcularSalario() {

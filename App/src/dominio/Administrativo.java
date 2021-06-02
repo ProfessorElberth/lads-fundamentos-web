@@ -12,6 +12,18 @@ public class Administrativo extends Funcionario {
 	public Administrativo(String nome, int idade) {
 		super(nome, idade);
 	}
+	
+	@Override
+	public void exibirFormaCalculo() {
+		System.out.println("= salário + bonus - desconto");
+		System.out.println("= " + getSalario() + " + " + bonus + " - " + desconto);
+		System.out.println("= " + calcularSalario());
+	}
+	
+	@Override
+	public String toString() {
+		return String.format("%.2f - %.2f", bonus, desconto);
+	}
 
 	@Override
 	public float calcularSalario() {

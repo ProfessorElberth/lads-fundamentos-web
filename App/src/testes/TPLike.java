@@ -5,6 +5,7 @@ import java.util.Scanner;
 import dominio.Administrativo;
 import dominio.Estagiario;
 import dominio.Funcionario;
+import dominio.Programador;
 
 public class TPLike{
 
@@ -21,9 +22,13 @@ public class TPLike{
 		
 		String opcao = null;
 		
+		int posicao = 0;
+		
 		do {
 			System.out.println("[1] Cadastrar administrativo");
 			System.out.println("[2] Cadastrar estagiario");
+			System.out.println("[3] Cadastrar programador");
+			System.out.println("[6] Exibir a forma de cálculo");
 			System.out.println("[7] Consultar um");
 			System.out.println("[8] Consultar todos");
 			System.out.println("[9] Sair");
@@ -35,6 +40,8 @@ public class TPLike{
 			case "1": 
 				if(index < QTDE) {
 					Administrativo adm = new Administrativo();
+					
+					adm.setId(index);
 					
 					System.out.println("Informe o seu nome: ");
 					adm.setNome(in.next());
@@ -67,6 +74,8 @@ public class TPLike{
 				if(index < QTDE) {
 					Estagiario estag = new Estagiario();
 					
+					estag.setId(index);
+					
 					System.out.println("Informe o seu nome: ");
 					estag.setNome(in.next());
 					
@@ -94,12 +103,57 @@ public class TPLike{
 				
 				break;
 			
+			case "3": 
+				if(index < QTDE) {
+					Programador prog = new Programador();
+					
+					prog.setId(index);
+					
+					System.out.println("Informe o seu nome: ");
+					prog.setNome(in.next());
+					
+					System.out.println("Informe a sua idade: ");
+					prog.setIdade(in.nextInt());
+					
+					System.out.println("Informe o seu salario: ");
+					prog.setSalario(in.nextFloat());
+	
+					System.out.println("Informe a sua linguagem: ");
+					prog.setLinguagem(in.next());
+
+					System.out.println("Informe se é fullstack: ");
+					prog.setFullStack(in.nextBoolean());
+
+					funcionarios[index] = prog;
+					
+					System.out.println("Programador cadastrado com sucesso: ");
+					funcionarios[index].imprimir();
+					
+					index++;
+				} else {
+					System.out.println("Não existe mais vaga para o cadastramento!!!");
+				}
+				
+				break;
+
+			case "6":
+				System.out.print("Informe a posicao: ");
+				posicao = in.nextInt();
+				
+				if(posicao >= 0 && posicao < index) {
+					funcionarios[posicao].exibirFormaCalculo();
+				} else {
+					System.out.println("Funcionário inexistente!!!");
+				}
+				
+				break;
+				
 			case "7":
 				System.out.print("Informe a posicao: ");
-				int pos = in.nextInt();
+				posicao = in.nextInt();
 				
-				if(pos >= 0 && pos < index) {
-					funcionarios[pos].imprimir();
+				if(posicao >= 0 && posicao < index) {
+					funcionarios[posicao].imprimir();
 				} else {
 					System.out.println("Funcionário inexistente!!!");
 				}
@@ -120,7 +174,7 @@ public class TPLike{
 				break;
 			}
 
-		} while (!opcao.equals("4"));
+		} while (!opcao.equals("9"));
 		
 		exibirRelatorio();
 		
@@ -131,7 +185,7 @@ public class TPLike{
 		float soma = 0;
 		
 		for(int i = 0; i < index; i++) {
-			soma = soma + funcionarios[index].calcularSalario();
+			soma = soma + funcionarios[i].calcularSalario();
 		}
 		
 		return soma / index;
