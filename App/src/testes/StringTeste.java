@@ -1,5 +1,7 @@
 package testes;
 
+import java.util.Arrays;
+
 public class StringTeste {
 
 	public static void main(String[] args) {
@@ -119,10 +121,41 @@ public class StringTeste {
 		System.out.println(nome.indexOf("erth"));
 		System.out.println(nome.lastIndexOf("e"));
 		
-		//TODO Vamos utilizar o método "substring" para recuperar três letras do seu nome: informe o início e o fim. Pode testar também informando até o início.
+//		Vamos utilizar o método "substring" para recuperar três letras do seu nome: informe o início e o fim. Pode testar também informando até o início.
+		System.out.println(nome);
+		System.out.println(nome.substring(8));
+		System.out.println(nome.substring(3,8));
 		
-		//TODO Vamos utilizar o método "concat" (e os demais métodos aprendidos) para juntar a palavra "Professor" antes do nome; faça também para pegar o sobrenome e concatenar com a primeira letra do nome, assim: EMoraes.
+//		Vamos utilizar o método "concat" (e os demais métodos aprendidos) para juntar a palavra "Professor" antes do nome; faça também para pegar o sobrenome e concatenar com a primeira letra do nome, assim: EMoraes.
+		System.out.println(nome);//Elberth Moraes
+		System.out.println("Professor ".concat(nome));
+		//E-Moraes
+		String primeiraLetra = nome.substring(0,1);//"E";
+		String separador = "-";
+		String sobrenome = nome.substring(8);// "Moraes";
+		System.out.println(primeiraLetra.concat(separador).concat(sobrenome));
 		
-		//TODO Coloque um espaco antes/depois do nome e um espaco antes/depois do sobrenome. Trabalhe na concatenação e exiba o resultado. Agora utilize o método "trim" para retirar os espaços dos extremos.
+//		Coloque um espaco antes/depois do nome e um espaco antes/depois do sobrenome. Trabalhe na concatenação e exiba o resultado. Agora utilize o método "trim" para retirar os espaços dos extremos.
+		String primeiroNome = " Elberth ";
+		String ultimoNome = " Moraes ";
+		System.out.println(primeiroNome.trim());
+		System.out.println(ultimoNome.trim());
+		String nomeCompleto = primeiroNome.trim().concat(ultimoNome).trim();
+				
+//		Vamos utilizar o método "replace" para substituir uma letra do seu nome por outra. Depois veja também o replaceAll e o replaceFirst.
+		System.out.println(nomeCompleto);
+		System.out.println(nomeCompleto.replace('e', 'a'));
+		System.out.println(nomeCompleto.replaceFirst("e", "x"));
+		System.out.println(nomeCompleto.replaceAll("ert", "W"));
+		
+//		Crie um variável chamada "nomeCompleto" e coloque todo o seu nome. Exiba essa informação com o syso.
+		String nomePrincipal = "Elberth;Lins;Costa;de;Moraes";
+		System.out.println(nomePrincipal.split(";"));
+		for(String txt : nomePrincipal.split(";")) {
+			System.out.println("- " + txt);
+		}
+		
+//		Agora vamos usar o método "split" para separar estes nomes pelo espaço existente entre eles. Exiba o resultado do método split. Use o "Arrays.asList" para melhorar a visualização.
+		System.out.println(Arrays.asList(nomePrincipal.split(" ")));
 	}
 }
