@@ -19,8 +19,7 @@ public class Estagiario extends Funcionario {
 	}
 	
 	@Override
-	public float calcularSalario() {
-		
+	public float calcularSalario() {		
 		return getSalario() - desconto;
 	}
 
