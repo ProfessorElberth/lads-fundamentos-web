@@ -32,6 +32,16 @@ public abstract class Funcionario {
 		this.salario = salario;
 	}
 	
+	public String obterStringSalarioPorFuncionario() {
+		StringBuilder sb = new StringBuilder();
+		sb.append(this.getNome());
+		sb.append(";");
+		sb.append(this.calcularSalario());
+		sb.append("\r\n");
+		
+		return sb.toString();
+	}
+	
 	public abstract void exibirFormaCalculo();
 	
 	public abstract float calcularSalario();

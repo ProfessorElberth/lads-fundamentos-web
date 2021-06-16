@@ -52,7 +52,7 @@ public class ArquivoTeste {
 						
 						estag.imprimir();
 						
-						escrita.write(estag.getNome()+";"+salario+"\r\n");
+						escrita.write(estag.obterStringSalarioPorFuncionario());
 						
 						qtde++;
 						somaSalarial = somaSalarial + salario;
