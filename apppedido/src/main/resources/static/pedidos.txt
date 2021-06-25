@@ -1,0 +1,4 @@
+0;Pedido especial;elberth;elberth@elberth.com;42
+B;Bebida super gelada;200;N;S;chope;500
+C;pf tradicional;100;N;arroz, feijao, bife, fritas, farofa;3;N
+S;Bolo da tia;300;S;doce, chocolate, menta;S;1500

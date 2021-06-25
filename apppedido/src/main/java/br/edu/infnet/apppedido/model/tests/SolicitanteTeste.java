@@ -6,7 +6,7 @@ public class SolicitanteTeste {
 
 	public static void main(String[] args) {
 		
-		Solicitante s1 = new Solicitante("Elberth Moraes", "elberth.moraes@gmail.com");
+		Solicitante s1 = new Solicitante("Elberth Moraes", "elberth.moraes@gmail.com", 20);
 		System.out.println("Solicitante: " + s1);
 	}
 }

@@ -1,11 +1,15 @@
 package br.edu.infnet.apppedido.model.domain;
 
+import br.edu.infnet.apppedido.model.exceptions.SobremesaSemAcompanhamentoException;
+
 public class Sobremesa extends Produto {
 
 	private boolean individual;
+	private String acompanhamento;
+	private int tamanho;
 	
-	public Sobremesa(String descricao, float valor) {
-		super(descricao, valor);
+	public Sobremesa(String descricao, float valor, boolean artesanal) {
+		super(descricao, valor, artesanal);
 	}
 
 	@Override
@@ -16,14 +20,30 @@ public class Sobremesa extends Produto {
 		sb.append(";");
 		sb.append(this.individual ? "S" : "N");
 		sb.append(";");
-		sb.append(this.calcularValorBruto());
+		sb.append(this.acompanhamento);
+		sb.append(";");
+		sb.append(this.tamanho);
 
 		return sb.toString();
 	}
 
 	@Override
-	public float calcularValorBruto() {
-		return 30;
+	public float calcularValorBruto() throws SobremesaSemAcompanhamentoException {
+
+		if(this.acompanhamento.isBlank()) {
+			throw new SobremesaSemAcompanhamentoException("[Sobremesa] Nenhum acompanhamento adicionado!");
+		}
+		
+		float valorIndividual = 0;
+		if(this.individual) {
+			valorIndividual = 20;
+		}
+
+		float valorAcompanhamento = this.acompanhamento.split(",").length * 2;
+
+		float valorTamanho = this.tamanho * 0.5f;
+		
+		return this.getValor() + valorIndividual + valorAcompanhamento + valorTamanho;
 	}
 
 	public boolean isIndividual() {
@@ -32,5 +52,21 @@ public class Sobremesa extends Produto {
 
 	public void setIndividual(boolean individual) {
 		this.individual = individual;
+	}
+
+	public String getAcompanhamento() {
+		return acompanhamento;
+	}
+
+	public void setAcompanhamento(String acompanhamento) {
+		this.acompanhamento = acompanhamento;
+	}
+
+	public int getTamanho() {
+		return tamanho;
+	}
+
+	public void setTamanho(int tamanho) {
+		this.tamanho = tamanho;
 	}
 }
