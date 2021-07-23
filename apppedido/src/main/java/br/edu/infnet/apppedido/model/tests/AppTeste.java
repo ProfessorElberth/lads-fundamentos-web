@@ -76,8 +76,7 @@ public class AppTeste {
 						break;
 
 					case "S":
-						Sobremesa s1 = new Sobremesa(campos[1], Float.valueOf(campos[2]),
-								"S".equalsIgnoreCase(campos[3]));
+						Sobremesa s1 = new Sobremesa(campos[1], Float.valueOf(campos[2]), "S".equalsIgnoreCase(campos[3]));
 						s1.setAcompanhamento(campos[4]);
 						s1.setIndividual("S".equalsIgnoreCase(campos[5]));
 						s1.setTamanho(Integer.valueOf(campos[6]));
@@ -97,8 +96,11 @@ public class AppTeste {
 				leitura.close();
 				escrita.close();
 				fileW.close();
-			} catch (SobremesaSemAcompanhamentoException | ComidaSemIngredienteException | PorcaoZeradaException
-					| MedidaZeradaOuNegativaException | IOException e) {
+			} catch (SobremesaSemAcompanhamentoException | 
+					 ComidaSemIngredienteException | 
+					 PorcaoZeradaException | 
+					 MedidaZeradaOuNegativaException | 
+					 IOException e) {
 				System.out.println(e.getMessage());
 			}
 

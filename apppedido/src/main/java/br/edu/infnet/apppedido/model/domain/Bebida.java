@@ -44,7 +44,7 @@ public class Bebida extends Produto {
 		}
 		
 		float valorMedida = this.medida * 0.05f;
-		
+
 		return this.getValor() + valorMarca + valorGelada + valorMedida;
 	}
 
