@@ -1,4 +1,4 @@
-package br.edu.infnet.model.domain;
+package br.edu.infnet.apppedido.model.domain;
 
 public class Aluno {
 	private String nome;
@@ -23,12 +23,12 @@ public class Aluno {
 		}
 	}
 	
-//	@Override
-//	public String toString() {		
-//		return String.format("[%s] O aluno %s (%s) tem %d anos, mora na região %s está inscrito em %d disciplinas e paga R$%.2f!\n",
-//				curso, nome, email, idade, regiao, disciplinas.length, mensalidade
-//			);
-//	}
+	@Override
+	public String toString() {		
+		return String.format("[%s] O aluno %s (%s) tem %d anos, mora na regiï¿½o %s estï¿½ inscrito em %d disciplinas e paga R$%.2f!\n",
+				curso, nome, email, idade, regiao, disciplinas.length, mensalidade
+			);
+	}
 	
 	public String getNome() {
 		return nome;
