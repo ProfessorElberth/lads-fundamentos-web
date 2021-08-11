@@ -40,7 +40,6 @@ public class AlunoController extends HttpServlet {
 		AlunoDao.incluir(aluno);
 		
 		request.setAttribute("nomeDoAluno", aluno.getNome());
-		request.setAttribute("lista", AlunoDao.obterLista());
 
 		request.getRequestDispatcher("confirmacao.jsp").forward(request, response);
 	}
