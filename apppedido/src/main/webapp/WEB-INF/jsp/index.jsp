@@ -16,7 +16,7 @@
 	  
 	  <a href="https://github.com/ProfessorElberth/lads-fundamentos-web">GITHUB</a>
 	  
-	  <a href="/aluno">Cadatramento de alunos</a>	  
+	  <a href="/aluno/lista">Cadatramento de alunos</a>	  
 	</div>
 
 </body>

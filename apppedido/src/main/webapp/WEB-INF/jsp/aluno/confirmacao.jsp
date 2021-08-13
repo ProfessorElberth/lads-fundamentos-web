@@ -1,5 +1,4 @@
-<%@ page language="java" contentType="text/html; charset=ISO-8859-1"
-    pageEncoding="ISO-8859-1"%>
+<%@ page language="java" contentType="text/html; charset=ISO-8859-1" pageEncoding="ISO-8859-1"%>
 <!DOCTYPE html>
 <html>
 <head>
@@ -8,14 +7,11 @@
 <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/css/bootstrap.min.css">
 </head>
 <body>
-
 	<div class="container">
-	  <h2>Confirmação</h2>
-	  <form action="/aluno" method="get">
-		
-	    <button type="submit" class="btn btn-default">Voltar</button>
-	  </form>
+		<a href="/aluno/lista">Voltar</a>
+		<hr>
+		<h3>O aluno ${nomeDoAluno} foi cadastrado com sucesso!!!</h3>
+		<hr>		
 	</div>
-
 </body>
 </html>
