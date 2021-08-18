@@ -1,6 +1,19 @@
 package br.edu.infnet.apppedido.model.domain;
 
+import javax.persistence.Entity;
+import javax.persistence.GeneratedValue;
+import javax.persistence.GenerationType;
+import javax.persistence.Id;
+import javax.persistence.Table;
+
+@Entity
+@Table(name = "TAluno")
 public class Aluno {
+	
+	@Id
+	@GeneratedValue(strategy = GenerationType.IDENTITY)
+	private Integer id;
+
 	private String nome;
 	private int idade;
 	private float mensalidade;
@@ -8,6 +21,10 @@ public class Aluno {
 	private String curso;
 	private String regiao;
 	private String[] disciplinas;
+	
+	public Aluno() {
+		
+	}
 	
 	public Aluno(String nome, String email) {
 		this.nome = nome;
@@ -30,6 +47,14 @@ public class Aluno {
 			);
 	}
 	
+	public Integer getId() {
+		return id;
+	}
+
+	public void setId(Integer id) {
+		this.id = id;
+	}
+
 	public String getNome() {
 		return nome;
 	}
