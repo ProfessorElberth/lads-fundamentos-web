@@ -10,13 +10,13 @@
 <body>
 
 	<div class="container">
-	  <h2>Elberth Moraes</h2>
+	  <h2>Olá, ${user.nome}!!!</h2>
 	  <h3>Java WEB</h3>
 	  <h4>AT</h4>
 	  
-	  <a href="https://github.com/ProfessorElberth/lads-fundamentos-web">GITHUB</a>
+	  <p> <a href="https://github.com/ProfessorElberth/lads-fundamentos-web">GITHUB</a> </p>
 	  
-	  <a href="/aluno/lista">Cadatramento de alunos</a>	  
+	  <p> <a href="/aluno/lista">Cadatramento de alunos</a> </p>	  
 	</div>
 
 </body>

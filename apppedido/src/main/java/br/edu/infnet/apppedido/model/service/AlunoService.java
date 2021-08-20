@@ -23,4 +23,8 @@ public class AlunoService {
 
 		alunoRepository.save(aluno);
 	}
+	
+	public void excluir(Integer id) {
+		alunoRepository.deleteById(id);
+	}
 }
