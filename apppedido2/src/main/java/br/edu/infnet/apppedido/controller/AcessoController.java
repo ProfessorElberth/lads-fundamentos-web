@@ -19,7 +19,7 @@ public class AcessoController {
 	private UsuarioService usuarioService;
 
 	@GetMapping(value = "/")
-	public String telaHome() {
+	public String telaIndex() {
 		return "index";
 	}
 	
