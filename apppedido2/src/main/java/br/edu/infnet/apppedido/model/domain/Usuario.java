@@ -1,9 +1,13 @@
 package br.edu.infnet.apppedido.model.domain;
 
+import java.util.List;
+
 import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
+import javax.persistence.JoinColumn;
+import javax.persistence.OneToMany;
 
 @Entity
 public class Usuario {
@@ -15,6 +19,9 @@ public class Usuario {
 	private String email;
 	private String senha;
 	private boolean admin;
+	@OneToMany
+	@JoinColumn(name = "idUsuario")
+	private List<Aluno> alunos;
 
 	public Integer getId() {
 		return id;
@@ -45,5 +52,11 @@ public class Usuario {
 	}
 	public void setAdmin(boolean admin) {
 		this.admin = admin;
+	}
+	public List<Aluno> getAlunos() {
+		return alunos;
+	}
+	public void setAlunos(List<Aluno> alunos) {
+		this.alunos = alunos;
 	}
 }
