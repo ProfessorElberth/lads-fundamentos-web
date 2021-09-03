@@ -1,12 +1,19 @@
 package br.edu.infnet.apppedido.model.domain;
 
+import javax.persistence.Entity;
+
 import br.edu.infnet.apppedido.model.exceptions.MedidaZeradaOuNegativaException;
 
+@Entity
 public class Bebida extends Produto {
 	
 	private String marca;
 	private boolean gelada;
 	private float medida;
+	
+	public Bebida() {
+		
+	}
 
 	public Bebida(String descricao, float valor, boolean artesanal) {
 		super(descricao, valor, artesanal);

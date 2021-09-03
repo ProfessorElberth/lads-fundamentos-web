@@ -1,15 +1,31 @@
 package br.edu.infnet.apppedido.model.domain;
 
+import javax.persistence.Entity;
+import javax.persistence.GeneratedValue;
+import javax.persistence.GenerationType;
+import javax.persistence.Id;
+import javax.persistence.Inheritance;
+import javax.persistence.InheritanceType;
+
 import br.edu.infnet.apppedido.model.exceptions.ComidaSemIngredienteException;
 import br.edu.infnet.apppedido.model.exceptions.MedidaZeradaOuNegativaException;
 import br.edu.infnet.apppedido.model.exceptions.PorcaoZeradaException;
 import br.edu.infnet.apppedido.model.exceptions.SobremesaSemAcompanhamentoException;
 
+@Entity
+@Inheritance(strategy = InheritanceType.JOINED)
 public abstract class Produto {
 
+	@Id
+	@GeneratedValue(strategy = GenerationType.IDENTITY)
+	private Integer id;
 	private String descricao;
 	private float valor;
 	private boolean artesanal;
+	
+	public Produto() {
+		
+	}
 	
 	public Produto(String descricao, float valor, boolean artesanal) {
 		this.descricao = descricao;
@@ -42,15 +58,36 @@ public abstract class Produto {
 	}
 	
 	public abstract float calcularValorBruto() throws MedidaZeradaOuNegativaException, PorcaoZeradaException, ComidaSemIngredienteException, SobremesaSemAcompanhamentoException;
-	
+
+	public Integer getId() {
+		return id;
+	}
+
+	public void setId(Integer id) {
+		this.id = id;
+	}
+
 	public String getDescricao() {
 		return descricao;
 	}
+
+	public void setDescricao(String descricao) {
+		this.descricao = descricao;
+	}
+
 	public float getValor() {
 		return valor;
 	}
 
+	public void setValor(float valor) {
+		this.valor = valor;
+	}
+
 	public boolean isArtesanal() {
 		return artesanal;
+	}
+
+	public void setArtesanal(boolean artesanal) {
+		this.artesanal = artesanal;
 	}
 }

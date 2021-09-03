@@ -10,6 +10,7 @@
       <c:if test="${not empty user}">
       	  <li><a href="/aluno/lista">Aluno</a></li>
       	  <li><a href="/usuario/lista">Usuário</a></li>
+      	  <li><a href="/bebida/lista">Bebida</a></li>
       </c:if>
     </ul>
     <ul class="nav navbar-nav navbar-right">
