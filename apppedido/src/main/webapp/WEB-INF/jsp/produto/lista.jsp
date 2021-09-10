@@ -13,20 +13,14 @@
 
 	<div class="container">
 
-		<form action="/bebida" method="get">
-			<button type="submit" class="btn btn-link">Incluir</button>
-		</form>
-		
-		<hr>
-		
 		<c:if test="${not empty msg}">
 			<div class="alert alert-success">
 			  <strong>Sucesso!</strong> ${msg}
 			</div>
 		</c:if>
 
-		<c:if test="${not empty bebidas}">
-			<h4>Quantidade de bebidas existentes: ${bebidas.size()}!!!</h4>
+		<c:if test="${not empty produtos}">
+			<h4>Quantidade de produtos existentes: ${produtos.size()}!!!</h4>
 			
 			<hr>
 	
@@ -37,31 +31,25 @@
 		        <th>Descrição</th>
 		        <th>Valor</th>
 		        <th>Artesanal</th>
-		        <th>Marca</th>
-		        <th>Medida</th>
-		        <th>Gelada</th>
 		        <th></th>
 		      </tr>
 		    </thead>
 		    <tbody>		    
-		    	<c:forEach var="b" items="${bebidas}">
+		    	<c:forEach var="p" items="${produtos}">
 			      <tr>
-			        <td>${b.id}</td>
-			        <td>${b.descricao}</td>
-			        <td>${b.valor}</td>
-			        <td>${b.artesanal}</td>
-			        <td>${b.marca}</td>
-			        <td>${b.medida}</td>
-			        <td>${b.gelada}</td>
-			        <td><a href="/bebida/${b.id}/excluir">Excluir</a></td>
+			        <td>${p.id}</td>
+			        <td>${p.descricao}</td>
+			        <td>${p.valor}</td>
+			        <td>${p.artesanal}</td>
+			        <td><a href="/produto/${p.id}/excluir">Excluir</a></td>
 			      </tr>
 		    	</c:forEach>
 		    </tbody>
 		  	</table>
 	  	</c:if>
 	  	
-	  	<c:if test="${empty bebidas}">
-			<h4>Não existem bebidas cadastradas!!!</h4>	  	
+	  	<c:if test="${empty produtos}">
+			<h4>Não existem produtos cadastradas!!!</h4>	  	
 	  	</c:if>
 	</div>
 </body>

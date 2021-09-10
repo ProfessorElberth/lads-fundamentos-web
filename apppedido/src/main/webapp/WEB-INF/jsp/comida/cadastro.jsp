@@ -12,33 +12,33 @@
 	<c:import url="/WEB-INF/jsp/menu.jsp"/>
 
 	<div class="container">
-	  <h2>Cadastro de Bebidas</h2>
-	  <form action="/bebida/incluir" method="post">
+	  <h2>Cadastro de Comidas</h2>
+	  <form action="/comida/incluir" method="post">
 
 	    <div class="form-group">
 	      <label>Descrição:</label>
-	      <input type="text" value="Suco" class="form-control" placeholder="Entre com a descrição" name="descricao">
+	      <input type="text" value="Churrasco" class="form-control" placeholder="Entre com a descrição" name="descricao">
 	    </div>
 
 	    <div class="form-group">
 	      <label>Valor:</label>
-	      <input type="text" value="10" class="form-control" placeholder="Entre com o valor" name="valor">
+	      <input type="text" value="100" class="form-control" placeholder="Entre com o valor" name="valor">
 	    </div>
 		
 	    <div class="form-group">
-	      <label>Marca:</label>
-	      <input type="text" value="Natural" class="form-control" placeholder="Entre com a marca" name="marca">
+	      <label>Porção:</label>
+	      <input type="text" value="4" class="form-control" placeholder="Entre com a porção" name="porcao">
 	    </div>
 
 	    <div class="form-group">
-	      <label>Medida:</label>
-	      <input type="text" value="500" class="form-control" placeholder="Entre com a medida" name="medida">
+	      <label>Ingrediente:</label>
+	      <input type="text" value="Carne, frango e linguiça" class="form-control" placeholder="Entre com os ingredientes" name="ingrediente">
 	    </div>
 
 	    <div class="form-group">
 	      <label>Características:</label>
-			<label class="checkbox-inline"><input type="checkbox" name="artesanal" checked>Artesanal</label>
-			<label class="checkbox-inline"><input type="checkbox" name="gelada">Gelada</label>
+			<label class="checkbox-inline"><input type="checkbox" name="artesanal">Artesanal</label>
+			<label class="checkbox-inline"><input type="checkbox" name="vegano">Vegano</label>
 	    </div>
 
 	    <button type="submit" class="btn btn-default">Cadastrar</button>

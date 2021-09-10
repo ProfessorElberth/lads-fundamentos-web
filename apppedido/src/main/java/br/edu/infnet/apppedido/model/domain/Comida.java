@@ -1,13 +1,19 @@
 package br.edu.infnet.apppedido.model.domain;
 
+import javax.persistence.Entity;
+
 import br.edu.infnet.apppedido.model.exceptions.ComidaSemIngredienteException;
 import br.edu.infnet.apppedido.model.exceptions.PorcaoZeradaException;
 
+@Entity
 public class Comida extends Produto {
 
 	private int porcao;
 	private boolean vegano;
 	private String ingrediente;
+	
+	public Comida() {
+	}
 	
 	public Comida(String descricao, float valor, boolean artesanal) {
 		super(descricao, valor, artesanal);

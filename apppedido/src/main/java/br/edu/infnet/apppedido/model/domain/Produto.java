@@ -6,6 +6,8 @@ import javax.persistence.GenerationType;
 import javax.persistence.Id;
 import javax.persistence.Inheritance;
 import javax.persistence.InheritanceType;
+import javax.persistence.JoinColumn;
+import javax.persistence.ManyToOne;
 
 import br.edu.infnet.apppedido.model.exceptions.ComidaSemIngredienteException;
 import br.edu.infnet.apppedido.model.exceptions.MedidaZeradaOuNegativaException;
@@ -22,6 +24,9 @@ public abstract class Produto {
 	private String descricao;
 	private float valor;
 	private boolean artesanal;
+	@ManyToOne
+	@JoinColumn(name = "idUsuario")
+	private Usuario usuario;
 	
 	public Produto() {
 		
@@ -89,5 +94,13 @@ public abstract class Produto {
 
 	public void setArtesanal(boolean artesanal) {
 		this.artesanal = artesanal;
+	}
+
+	public Usuario getUsuario() {
+		return usuario;
+	}
+
+	public void setUsuario(Usuario usuario) {
+		this.usuario = usuario;
 	}
 }

@@ -1,5 +1,3 @@
-<%@page import="br.edu.infnet.apppedido.model.domain.Aluno"%>
-<%@page import="java.util.List"%>
 <%@ page language="java" contentType="text/html; charset=ISO-8859-1" pageEncoding="ISO-8859-1"%>
 <%@ taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c"%>
 <!DOCTYPE html>
@@ -32,7 +30,8 @@
 		      	<th>Id</th>
 		        <th>Nome</th>
 		        <th>E-mail</th>
-		        <th>Alunos</th>
+		        <th>Solicitantes</th>
+		        <th>Produtos</th>
 		        <c:if test="${user.admin}">
 		        	<th></th>
 		        </c:if>
@@ -44,7 +43,8 @@
 			        <td>${u.id}</td>
 			        <td>${u.nome}</td>
 			        <td>${u.email}</td>
-			        <td>${u.alunos.size()}</td>
+			        <td>${u.solicitantes.size()}</td>
+			        <td>${u.produtos.size()}</td>
 			        <c:if test="${user.admin}">
 			        	<td><a href="/usuario/${u.id}/excluir">Excluir</a></td>
 			      	</c:if>

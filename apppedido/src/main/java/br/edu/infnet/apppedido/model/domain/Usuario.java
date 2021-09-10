@@ -26,7 +26,10 @@ public class Usuario {
 	private Endereco endereco;
 	@OneToMany(cascade = CascadeType.REMOVE, orphanRemoval = true)
 	@JoinColumn(name = "idUsuario")
-	private List<Aluno> alunos;
+	private List<Solicitante> solicitantes;
+	@OneToMany(cascade = CascadeType.REMOVE, orphanRemoval = true)
+	@JoinColumn(name = "idUsuario")
+	private List<Produto> produtos;
 
 	public Integer getId() {
 		return id;
@@ -58,16 +61,22 @@ public class Usuario {
 	public void setAdmin(boolean admin) {
 		this.admin = admin;
 	}
-	public List<Aluno> getAlunos() {
-		return alunos;
+	public List<Solicitante> getSolicitantes() {
+		return solicitantes;
 	}
-	public void setAlunos(List<Aluno> alunos) {
-		this.alunos = alunos;
+	public void setSolicitantes(List<Solicitante> solicitantes) {
+		this.solicitantes = solicitantes;
 	}
 	public Endereco getEndereco() {
 		return endereco;
 	}
 	public void setEndereco(Endereco endereco) {
 		this.endereco = endereco;
+	}
+	public List<Produto> getProdutos() {
+		return produtos;
+	}
+	public void setProdutos(List<Produto> produtos) {
+		this.produtos = produtos;
 	}
 }

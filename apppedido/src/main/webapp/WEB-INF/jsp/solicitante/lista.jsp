@@ -1,5 +1,3 @@
-<%@page import="br.edu.infnet.apppedido.model.domain.Aluno"%>
-<%@page import="java.util.List"%>
 <%@ page language="java" contentType="text/html; charset=ISO-8859-1" pageEncoding="ISO-8859-1"%>
 <%@ taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c"%>
 <!DOCTYPE html>
@@ -15,20 +13,20 @@
 
 	<div class="container">
 
-		<form action="/aluno" method="get">
+		<form action="/solicitante" method="get">
 			<button type="submit" class="btn btn-link">Incluir</button>
 		</form>
 		
 		<hr>
-		
-		<c:if test="${not empty lista}">
-			<c:if test="${not empty msg}">
-				<div class="alert alert-success">
-				  <strong>Sucesso!</strong> ${msg}
-				</div>
-			</c:if>
 	
-			<h4>Quantidade de alunos existentes: ${lista.size()}!!!</h4>
+		<c:if test="${not empty msg}">
+			<div class="alert alert-success">
+			  <strong>Sucesso!</strong> ${msg}
+			</div>
+		</c:if>
+
+		<c:if test="${not empty lista}">
+			<h4>Quantidade de solicitantes existentes: ${lista.size()}!!!</h4>
 			
 			<hr>
 	
@@ -39,23 +37,19 @@
 		        <th>Nome</th>
 		        <th>E-mail</th>
 		        <th>Idade</th>
-		        <th>Curso</th>
-		        <th>Região</th>
 		        <th>Usuário</th>
 		        <th></th>
 		      </tr>
 		    </thead>
 		    <tbody>		    
-		    	<c:forEach var="a" items="${lista}">
+		    	<c:forEach var="s" items="${lista}">
 			      <tr>
-			        <td>${a.id}</td>
-			        <td>${a.nome}</td>
-			        <td>${a.email}</td>
-			        <td>${a.idade}</td>
-			        <td>${a.curso}</td>
-			        <td>${a.regiao}</td>
-			        <td>${a.usuario.nome}</td>
-			        <td><a href="/aluno/${a.id}/excluir">Excluir</a></td>
+			        <td>${s.id}</td>
+			        <td>${s.nome}</td>
+			        <td>${s.email}</td>
+			        <td>${s.idade}</td>
+			        <td>${s.usuario.nome}</td>
+			        <td><a href="/solicitante/${s.id}/excluir">Excluir</a></td>
 			      </tr>
 		    	</c:forEach>
 		    </tbody>
@@ -63,7 +57,7 @@
 	  	</c:if>
 	  	
 	  	<c:if test="${empty lista}">
-			<h4>Não existem alunos cadastrados!!!</h4>	  	
+			<h4>Não existem solicitantes cadastrados!!!</h4>	  	
 	  	</c:if>
 	</div>
 </body>

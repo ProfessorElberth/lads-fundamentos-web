@@ -9,6 +9,8 @@
 </head>
 <body>
 
+	<c:import url="/WEB-INF/jsp/menu.jsp"/>
+
 	<div class="container">
 	
 		<c:if test="${not empty mensagem}">
@@ -27,7 +29,7 @@
 
 	    <div class="form-group">
 	      <label>Senha:</label>
-	      <input value="elberth.moraes@prof.infnet.edu.br" type="password" class="form-control" placeholder="Entre com a sua senha" name="senha">
+	      <input value="123" type="password" class="form-control" placeholder="Entre com a sua senha" name="senha">
 	    </div>
 
 	    <button type="submit" class="btn btn-default">Acessar</button>
