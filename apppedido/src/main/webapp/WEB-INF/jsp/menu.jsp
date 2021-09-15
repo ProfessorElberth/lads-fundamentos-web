@@ -13,6 +13,7 @@
       	  <li><a href="/bebida/lista">Bebida</a></li>
       	  <li><a href="/comida/lista">Comida</a></li>
       	  <li><a href="/produto/lista">Produto</a></li>
+      	  <li><a href="/pedido/lista">Pedido</a></li>
       </c:if>
     </ul>
     <ul class="nav navbar-nav navbar-right">

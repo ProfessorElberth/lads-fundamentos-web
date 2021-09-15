@@ -32,6 +32,7 @@
 		        <th>E-mail</th>
 		        <th>Solicitantes</th>
 		        <th>Produtos</th>
+		        <th>Pedidos</th>
 		        <c:if test="${user.admin}">
 		        	<th></th>
 		        </c:if>
@@ -45,6 +46,7 @@
 			        <td>${u.email}</td>
 			        <td>${u.solicitantes.size()}</td>
 			        <td>${u.produtos.size()}</td>
+			        <td>${u.pedidos.size()}</td>
 			        <c:if test="${user.admin}">
 			        	<td><a href="/usuario/${u.id}/excluir">Excluir</a></td>
 			      	</c:if>
