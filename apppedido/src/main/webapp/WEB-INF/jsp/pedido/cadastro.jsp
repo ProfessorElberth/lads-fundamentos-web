@@ -9,6 +9,8 @@
 </head>
 <body>
 
+	<c:set var="botao" value=""/>
+
 	<c:import url="/WEB-INF/jsp/menu.jsp"/>
 
 	<div class="container">
@@ -16,21 +18,27 @@
 	  <form action="/pedido/incluir" method="post">
 
 		<div class="form-group">
-		  <label>Solicitante:</label>
-		  <select class="form-control" name="solicitante.id">
-			<c:forEach var="s" items="${solicitantes}">
-				<option value="${s.id}">${s.nome}</option>
-			</c:forEach>
-		  </select>
+		  <c:if test="${not empty solicitantes}">
+		  	  <label>Solicitante:</label>
+			  <select class="form-control" name="solicitante.id">
+				<c:forEach var="s" items="${solicitantes}">
+					<option value="${s.id}">${s.nome}</option>
+				</c:forEach>
+			  </select>
+		  </c:if>
+		  <c:if test="${empty solicitantes}">
+		  	  <c:set var="botao" value="disabled"/>
+		  	  <label>Solicitante: não existem registros cadastrados!!!</label>
+		  </c:if>
 		</div>	
 
 	    <div class="form-group">
 	      <label>Descrição:</label>
 	      <input value="Primeiro pedido" type="text" class="form-control" placeholder="Entre com a descrição" name="descricao">
-	    </div>
-	    
+	    </div>	    
 		
 		<div class="form-group">			
+		<c:if test="${not empty produtos}">
 			<label>Produtos:</label>
 			<c:forEach var="p" items="${produtos}">
 			  	<div class="form-check">
@@ -39,10 +47,14 @@
 					</label>
 				</div>
 			</c:forEach>
-		</div>
-	    
+		</c:if>
+		<c:if test="${empty produtos}">
+		    <c:set var="botao" value="disabled"/>
+			<label>Produtos: não existem registros cadastrados!!!</label>
+		</c:if>
+		</div>	    
 
-	    <button type="submit" class="btn btn-default">Cadastrar</button>
+	    <button type="submit" ${botao} class="btn btn-default">Cadastrar</button>
 	  </form>
 	</div>
 

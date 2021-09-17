@@ -48,9 +48,14 @@ public class ComidaController {
 		
 		Comida comida = comidaService.obterPorId(id);
 		
-		comidaService.excluir(id);
-		
-		model.addAttribute("msg", "Comida " + comida.getDescricao() + " removida com sucesso!!!");
+		String mensagem = null;
+		try {
+			comidaService.excluir(id);		
+			mensagem = "A comida " + comida.getDescricao() + " foi removida com sucesso!!!";
+		} catch (Exception e) {
+			mensagem = "Foi impossível realizar a exclusão da comida "+ comida.getDescricao();
+		}
+		model.addAttribute("msg", mensagem);
 		
 		return telaLista(model, usuario);
 	}

@@ -50,9 +50,13 @@ public class SolicitanteController {
 
 		Solicitante solicitante = solicitanteService.obterPorId(id);
 		
-		solicitanteService.excluir(id);
-		
-		String mensagem = "O solicitante "+ solicitante.getNome() +" foi removido com sucesso!!!";
+		String mensagem = null;
+		try {
+			solicitanteService.excluir(id);		
+			mensagem = "O solicitante "+ solicitante.getNome() +" foi removido com sucesso!!!";
+		} catch (Exception e) {
+			mensagem = "Foi impossível realizar a exclusão do solicitante "+ solicitante.getNome();
+		}
 		
 		model.addAttribute("msg", mensagem);
 

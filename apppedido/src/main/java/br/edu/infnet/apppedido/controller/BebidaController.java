@@ -48,9 +48,14 @@ public class BebidaController {
 		
 		Bebida bebida = bebidaService.obterPorId(id);
 		
-		bebidaService.excluir(id);
-		
-		model.addAttribute("msg", "Bebida " + bebida.getDescricao() + " removida com sucesso!!!");
+		String mensagem = null;
+		try {
+			bebidaService.excluir(id);		
+			mensagem = "A bebida " + bebida.getDescricao() + " foi removida com sucesso!!!";
+		} catch (Exception e) {
+			mensagem = "Foi impossível realizar a exclusão da bebida "+ bebida.getDescricao();
+		}
+		model.addAttribute("msg", mensagem);
 		
 		return telaLista(model, usuario);
 	}
