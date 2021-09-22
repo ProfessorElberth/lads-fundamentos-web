@@ -36,4 +36,7 @@ public class PedidoService {
 	public Pedido obterPorId(Integer id) {
 		return pedidoRepository.findById(id).orElse(null);
 	}	
+	public Integer obterQtde() {
+		return (int) pedidoRepository.count();
+	}
 }

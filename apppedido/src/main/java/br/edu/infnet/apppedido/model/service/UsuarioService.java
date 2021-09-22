@@ -30,4 +30,8 @@ public class UsuarioService {
 	public List<Usuario> obterLista(){
 		return (List<Usuario>) usuarioRepository.findAll();
 	}
+	
+	public Integer obterQtde() {
+		return (int) usuarioRepository.count();
+	}
 }

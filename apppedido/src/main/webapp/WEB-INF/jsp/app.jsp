@@ -15,12 +15,9 @@
 	  <h3>Java WEB</h3>
 	  <h4>AT</h4>	  
 		<ul class="list-group">
-	    <li class="list-group-item">Usuário <span class="badge">12</span></li>
-	    <li class="list-group-item">Solicitante <span class="badge">5</span></li>
-	    <li class="list-group-item">Bebida <span class="badge">3</span></li>
-	    <li class="list-group-item">Comida <span class="badge">12</span></li>
-	    <li class="list-group-item">Sobremesa <span class="badge">5</span></li>
-	    <li class="list-group-item">Pedido <span class="badge">3</span></li>
+		<c:forEach var="mapa" items="${totalizacao}">
+	    	<li class="list-group-item">${mapa.key} <span class="badge">${mapa.value}</span></li>
+	    </c:forEach>
 	  	</ul>
 	</div>
 

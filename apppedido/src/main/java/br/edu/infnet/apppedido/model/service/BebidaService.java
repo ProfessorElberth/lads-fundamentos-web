@@ -33,4 +33,7 @@ public class BebidaService {
 	public Bebida obterPorId(Integer id) {
 		return bebidaRepository.findById(id).orElse(null);
 	}
+	public Integer obterQtde() {
+		return (int) bebidaRepository.count();
+	}
 }
